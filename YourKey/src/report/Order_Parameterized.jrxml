@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Order_Parameterized" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4004268b-2553-419f-8c6d-b14e5d5d4f2e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="2017/05/02" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     carorder.`OrderID` AS carorder_OrderID,
+     carorder.`OrderedDateOrTime` AS carorder_OrderedDateOrTime,
+     carorder.`DeliveredDateOrTime` AS carorder_DeliveredDateOrTime,
+     carorder.`ReturnDateOrTime` AS carorder_ReturnDateOrTime,
+     carorder.`FinalAmount` AS carorder_FinalAmount,
+     carorder.`Payment` AS carorder_Payment
+FROM
+     `carorder` carorder
+WHERE
+carorder.`ReturnDateOrTime`=$P{2017/05/02}]]>
+	</queryString>
+	<field name="carorder_OrderID" class="java.lang.Integer"/>
+	<field name="carorder_OrderedDateOrTime" class="java.lang.String"/>
+	<field name="carorder_DeliveredDateOrTime" class="java.lang.String"/>
+	<field name="carorder_ReturnDateOrTime" class="java.lang.String"/>
+	<field name="carorder_FinalAmount" class="java.lang.Double"/>
+	<field name="carorder_Payment" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="170" y="35" width="263" height="33" uuid="a3011070-ab4a-4ccd-8756-0d11e21a5ee7"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[YOUR KEY]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="1425d844-0a0a-4ba9-a07f-e4b6b64f935e"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="92" height="15" uuid="ccd06b6e-3aa0-40c8-a7b0-c788181413fc"/>
+				<text><![CDATA[carorder_OrderID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="19" width="92" height="15" uuid="24811768-f4f3-4ea7-a39e-0a099625ac92"/>
+				<text><![CDATA[carorder_OrderedDateOrTime]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="184" y="19" width="92" height="15" uuid="9b4ac064-562c-424f-b2c4-4f3ee3471921"/>
+				<text><![CDATA[carorder_DeliveredDateOrTime]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="92" height="15" uuid="c06a9815-dae0-4e0f-b766-c23d53f8aade"/>
+				<text><![CDATA[carorder_ReturnDateOrTime]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="19" width="92" height="15" uuid="b9e05ed0-b175-4e4c-b9e0-d1bf0cacde54"/>
+				<text><![CDATA[carorder_FinalAmount]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="19" width="92" height="15" uuid="99c578f6-9f80-45a2-956a-4338937a8ae7"/>
+				<text><![CDATA[carorder_Payment]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="929c98c9-966f-4e16-9396-b66f15093136"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="92" height="15" uuid="74484cc9-e92c-40ca-8515-794174d4055d"/>
+				<textFieldExpression><![CDATA[$F{carorder_OrderID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="0" width="92" height="15" uuid="3bb2e9e5-a8fe-45c6-9a38-bbb3d8649303"/>
+				<textFieldExpression><![CDATA[$F{carorder_OrderedDateOrTime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="184" y="0" width="92" height="15" uuid="af240095-49b9-4f78-b97c-49e72d03f644"/>
+				<textFieldExpression><![CDATA[$F{carorder_DeliveredDateOrTime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="92" height="15" uuid="eb09805e-1c98-4dab-8a4c-79823632fd9b"/>
+				<textFieldExpression><![CDATA[$F{carorder_ReturnDateOrTime}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="368" y="0" width="92" height="15" uuid="494f5b9e-774f-44ce-9e5d-87ad74f0a278"/>
+				<textFieldExpression><![CDATA[$F{carorder_FinalAmount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="460" y="0" width="92" height="15" uuid="b139cdd7-fe75-41ad-b1a1-2d512eacb004"/>
+				<textFieldExpression><![CDATA[$F{carorder_Payment}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="777c19f4-5f11-4506-ad89-8e08d12dbaf9"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="b39f6db1-b4be-4d82-8fd1-f1b8546b70e0"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="7312addd-c774-4b53-b2d5-8c55d1fbfb0f"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="fe452c8d-8994-4659-a65b-31a30d19fb6e"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
